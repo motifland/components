@@ -1,0 +1,15 @@
+export const meta = {
+  name: "Docs",
+}
+
+export const Template = ({ filename, path, meta, children }) => {
+  return <div className="antialiased prose max-w-screen-md">{children}</div>
+}
+
+export default (props) => <Template {...props} />
+
+{/* Sample data */}
+
+# Plain template
+
+Some sample text.

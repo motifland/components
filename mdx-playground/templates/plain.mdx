@@ -1,0 +1,25 @@
+export const meta = {
+  name: "Plain",
+}
+
+export const Template = ({ filename, path, meta, children }) => {
+  return (
+    <div>
+      <div
+        className="flex w-full h-[320px] sm:h-[400px] mb-12 items-center justify-center overflow-hidden bg-cover bg-center"
+        style={{ backgroundImage: `url(https://res.cloudinary.com/djp21wtxm/image/upload/v1647265347/MDX_Playground_hyrtop.svg)` }}
+      />
+      <div className="p-6 sm:px-8 pb-32 mx-auto max-w-screen-md antialiased prose">
+        {children}
+      </div>
+    </div>
+  )
+}
+
+export default (props) => <Template {...props} />
+
+{/* Sample data */}
+
+# Plain template
+
+Some sample text.

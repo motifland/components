@@ -1,0 +1,51 @@
+import { Playground } from "@components/playground"
+
+# MDX Playground
+
+Embed interactive MDX playgrounds on your site for users to try out your code samples.
+
+## Usage
+
+```jsx
+import { Playground } from "https://cdn.motif.land/motifmdxplayground@0.0.7"
+```
+
+## Basic example
+
+The playground can be initialized with a sample code string that will be executed live in the page. When the user opens the code editor, they can edit the code to experiment further. If your code contains custom components, you need to pass these via the `scope` props.
+
+```jsx
+export const MyComponent = () => <div>My component!</div>
+
+<Playground
+  title="My Component"
+  initialJsx={`<MyComponent />`}
+  imports={{
+    "https://cdn.motif.land/mycomponent@0.0.1": ["MyComponent"]
+  }}
+  scope={{ MyComponent }}
+/>
+```
+
+export const MyComponent = () => {
+  return <div>My component!</div>
+}
+
+<Playground
+  title="My Component"
+  initialJsx="<MyComponent />"
+  imports={{
+    "https://cdn.motif.land/mycomponent@0.0.1": ["MyComponent"]
+  }}
+  scope={{MyComponent}}
+/>
+
+
+## Component API
+
+| Prop | Description |
+| :------------ | :----------- |
+| `title`  | A title to display at the top of the playground. |
+| `initialJsx`| The code string to initialize the playground with. Note that this should be a single JSX component, such as `<MyComponent />`, or `<div><p>Hello</p></div>`. Multiple declarations are not currently handled. |
+| `imports`| (Optional) If provided, generate a list of import statements at the top of the playground editor code. This is a dictionary of the form `{ source1: ["Comp1", ...], source2: [...]}` where the keys are the import sources, and the values are lists of component names. |
+| `scope`| If your playground code includes custom components, add them here so that the code can be executed at runtime. This is a dictionary of the form `{ Component1, Component2, ... }`. |
